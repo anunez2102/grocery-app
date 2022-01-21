@@ -3,7 +3,7 @@ const productsList = [
         item: 'Ginger Ale',
         brand: 'Canada Dry',
         units: '2 Liters',
-        quantity: 0,
+        quantity: 2,
         isPurchased: false
     },
 
@@ -11,7 +11,7 @@ const productsList = [
         item: 'Hot Sauce',
         brand: 'Tapatio',
         units: '5 fl oz',
-        quantity: 0,
+        quantity: 1,
         isPurchased: false
     },
 
@@ -19,7 +19,7 @@ const productsList = [
         item: 'Garlic Salt',
         brand: 'Badia',
         units: '16 oz',
-        quantity: 0,
+        quantity: 1,
         isPurchased: false
     },
 ]     
@@ -31,7 +31,7 @@ class App extends React.Component {
         item: '',
         brand: '',
         units: '',
-        quantity: 0,
+        quantity: '',
         isPurchased: false
     } 
 
@@ -45,8 +45,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <form>
+                <div className="App"><form id="grocery-list">
                     <label htmlFor='item'>Item: </label>
                     <input id='item' type='text' value={this.state.item} onChange={this.handleChange} />
                     <label htmlFor='brand'>Brand: </label>
@@ -55,12 +54,13 @@ class App extends React.Component {
                     <input id='units' type='text' value={this.state.units} onChange={this.handleChange} />
                     <label htmlFor='quantity'>Quantity: </label>
                     <input id='quantity' type='text' value={this.state.quantity} onChange={this.handleChange} />
+                    <button type="submit">ADD</button>
                     </form>
                     <ul>
                         {
                             this.state.products.map(item => {
                                 return (
-                                    <li>{item.item} {item.brand}</li>
+                                    <li>{item.item}, {item.brand}, {item.units}, {item.quantity}</li>
                                 )
                             })
                         }

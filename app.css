@@ -1,0 +1,33 @@
+body {
+    background-color: saddlebrown;
+}
+
+.App {
+    background-color: bisque;
+    min-height: 500px;
+    width: 310px;
+    margin: 40px auto;
+}
+
+#grocery-list input{
+    background-color: rgb(27, 71, 27);
+    border: 0;
+    width: 200px;
+    height: 50px;
+    padding: 0 20px;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: white
+}
+
+#grocery-list button {
+    height:50px;
+    width: 80px;
+    border-radius: 0;
+    background-color: rgb(171, 207, 117);
+    cursor: pointer;
+    font-weight: bolder;
+    color: rgb(27, 71, 27);
+}
+
