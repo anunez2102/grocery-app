@@ -1,10 +1,10 @@
 body {
-    background-color: saddlebrown;
+    background-color: rgb(87, 42, 10);
 }
 
 .App {
     background-color: bisque;
-    min-height: 500px;
+    min-height: 900px;
     width: 310px;
     margin: 40px auto;
 }

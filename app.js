@@ -35,10 +35,34 @@ class App extends React.Component {
         isPurchased: false
     } 
 
+    addItem = item => {
+        this.setState({
+            cartItems: [item, ...this.state.cartItems]
+        })
+    }
+
     handleChange = (event) => {
         console.log(event.target.value)
         this.setState({
             name: event.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        const newItem = {
+            name: this.state.item,
+            brand: this.state.brand,
+            units: parseInt(this.state.units),
+            quantity: parseInt(this.state.quantity),
+        }
+
+        // console.log(typeof parseInt(newItem.price))
+        this.setState({
+            products: [newItem, ...this.state.products],
+            name: '',
+            price: 0,
+            description: ''
         })
     }
 
@@ -47,14 +71,14 @@ class App extends React.Component {
             <div>
                 <div className="App"><form id="grocery-list">
                     <label htmlFor='item'>Item: </label>
-                    <input id='item' type='text' value={this.state.item} onChange={this.handleChange} />
+                    <input id='item' type='text' /*value={this.state.item} */onChange={this.handleChange} />
                     <label htmlFor='brand'>Brand: </label>
-                    <input id='brand' type='text' value={this.state.brand} onChange={this.handleChange} />
+                    <input id='brand' type='text' /*value={this.state.brand}*/ onChange={this.handleChange} />
                     <label htmlFor='units'>Units: </label>
-                    <input id='units' type='text' value={this.state.units} onChange={this.handleChange} />
+                    <input id='units' type='text' /*value={this.state.units}*/ onChange={this.handleChange} />
                     <label htmlFor='quantity'>Quantity: </label>
-                    <input id='quantity' type='text' value={this.state.quantity} onChange={this.handleChange} />
-                    <button type="submit">ADD</button>
+                    <input id='quantity' type='text' /*value={this.state.quantity}*/ onChange={this.handleChange} />
+                    <button type="submit" onClick={this.addItem.bind(this)}>ADD</button>
                     </form>
                     <ul>
                         {
